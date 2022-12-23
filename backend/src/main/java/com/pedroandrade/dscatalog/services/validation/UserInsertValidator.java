@@ -13,7 +13,7 @@ import java.util.List;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class UserInsertValidator implements ConstraintValidator<UserInsertValid, UserInsertDTO> {//Generics: 1º: tipo da annotation; 2º: tipo da classe
+public class UserInsertValidator implements ConstraintValidator<UserInsertValid, UserInsertDTO> {//Generics: 1º: tipo da annotation;
                                                                                                 //2º: tipo da classe que vai receber essa annotation.
     @Autowired
     private UserRepository repository;
