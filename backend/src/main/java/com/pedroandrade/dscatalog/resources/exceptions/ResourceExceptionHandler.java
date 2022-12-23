@@ -40,7 +40,7 @@ public class ResourceExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ValidationError>validation(MethodArgumentNotValidException e, HttpServletRequest request) {
+    public ResponseEntity<ValidationError> validation(MethodArgumentNotValidException e, HttpServletRequest request) {
         HttpStatus status = HttpStatus.UNPROCESSABLE_ENTITY;
         ValidationError err = new ValidationError();
         err.setTimestamp(Instant.now());
@@ -52,7 +52,7 @@ public class ResourceExceptionHandler {
         for (FieldError f: e.getBindingResult().getFieldErrors()) {
             err.addError(f.getField(), f.getDefaultMessage());
         }
-        
+
         return ResponseEntity.status(status).body(err);
     }
 }
